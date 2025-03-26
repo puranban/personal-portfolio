@@ -10,7 +10,12 @@ import {
 } from "./ui/sheet";
 import NavLink from "./NavLink";
 
-const MobileNav = () => {
+interface Props {
+  pathname?: string;
+}
+
+const MobileNav = (props: Props) => {
+  const { pathname } = props;
   return (
     <Sheet>
       <SheetTrigger className="relative group h-6 w-6 flex items-center justify-center">

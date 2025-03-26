@@ -8,11 +8,10 @@ body {
 
 @layer base {
   :root {
-    --body-color: #1c1c22;
     --light-sky-color: #00ff99;
-    --hover-color: #00e187;
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --hover: 141.9 69.2% 58%;
+    --background: 240 10% 12%;
+    --foreground: 0 0% 95%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
@@ -37,8 +36,11 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
-    --background: 0 0% 3.9%;
+    --light-sky-color: #00ff99;
+    --hover: 141.9 69.2% 58%;
+    --background: 240 10% 12%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
@@ -71,5 +73,21 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+    /* @apply dark:bg-slate-800 bg-gray-50; */
   }
+}
+
+.heading-1 {
+  /* font-size 48px */
+  @apply text-5xl xl:text-[80px] font-semibold leading-[1.1];
+}
+
+.heading-2 {
+  /* font-size 36px */
+  @apply text-4xl xl:text-[48px] font-semibold leading-[1.1];
+}
+
+.heading-3 {
+  /* font-size 24px */
+  @apply text-2xl xl:text-[36px] font-semibold leading-[1.1];
 }

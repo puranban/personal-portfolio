@@ -19,15 +19,15 @@ const NavLink = (props: Props) => {
   return (
     <Link
       className={cn(className,
-        `relative group overflow-x-hidden hover:text-hoverColor transition-all duration-300
-        ${ pathname === href && "text-hoverColor" }`
+        `relative group overflow-x-hidden hover:text-hover transition-all duration-300
+        ${ pathname === href && "text-hover" }`
       )}
       href={href}
     >
       { children }
       <span
         className={
-          `w-full h-px bg-hoverColor inline-block absolute left-0 bottom-0 group-hover:translate-x-0 transition-all duration-300
+          `w-full h-px bg-hover inline-block absolute left-0 bottom-0 group-hover:translate-x-0 transition-all duration-300
           ${ pathname === href ? "translate-x-0" : "-translate-x-[105%]" }`
         }
       />

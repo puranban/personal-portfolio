@@ -10,9 +10,12 @@ export default {
   theme: {
   	extend: {
   		colors: {
-        bodyColor: 'var(--body-color)',
-        hoverColor: 'var(--hover-color)',
+        hover: {
+          DEFAULT: 'hsl(var(--hover))',
+          // foreground: 'var(--hover)',
+        },
         lightSkyColor: 'var(--light-sky-color)',
+
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

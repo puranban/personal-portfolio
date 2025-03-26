@@ -19,7 +19,7 @@ const Logo = (props: Props) => {
         <h2
           className={cn(
             className,
-            "hover:text-hoverColor cursor-pointer transition-all duration-300"
+            "hover:text-hover cursor-pointer transition-all duration-300"
           )}
         >
           { title } <span className='text-lightSkyColor'> { subtitle } </span>
