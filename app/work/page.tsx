@@ -1,6 +1,8 @@
+import SectionWrapper from "@/components/SectionWrapper";
+
 const Work = () => {
   return (
-    <div> work </div>
+    <SectionWrapper id="work"> Work </SectionWrapper>
   );
 };
 

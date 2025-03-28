@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface Props {
   children: React.ReactNode;
@@ -12,9 +13,12 @@ const Container = (props: Props) => {
   } = props;
 
   return (
-    <div className={cn(className, "px-5 max-w-screen-xl mx-auto w-full")}>
+    <motion.div className={cn(
+      "relative w-full flex md:flex-row flex-col justify-center items-center",
+      className,
+    )}>
       { children }
-    </div>
+    </motion.div>
   )
 };
 export default Container;

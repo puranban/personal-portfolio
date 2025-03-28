@@ -1,6 +1,8 @@
+import SectionWrapper from "@/components/SectionWrapper";
+
 const Contact = () => {
   return (
-    <div> Contact </div>
+    <SectionWrapper id="contact"> Contact </SectionWrapper>
   );
 };
 

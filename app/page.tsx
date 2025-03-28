@@ -1,47 +1,50 @@
 "use client";
 
-import { Download } from "lucide-react";
-
-import Container from "@/components/Container";
-import HeroPhoto from "@/components/HeroPhoto";
+import { motion } from "framer-motion";
 import Social from "@/components/Social";
-import { Button } from "@/components/ui/button";
-import { ScrollAnimation } from "@/components/ScrollAnimation";
+import Resume from "./resume/page";
+import Work from "./work/page";
+import Contact from "./contact/page";
+import HeroSection from "@/components/HeroSection";
+import Header from "@/components/Header";
+import About from "./about/page";
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center h-full w-full">
-      <section className="h-full w-full mx-auto">
-        <Container className="flex flex-col md:flex-row items-center justify-between">
-          <div className="text-center md:text-left order-2 md:order-none">
-            <ScrollAnimation>
-              <span className="text-xl">Software Developer </span>
-              <h1 className="heading-3 mb-6">
-                Hello I am
-                <br />
-                <span className="text-hover"> Puran Ban </span>
-              </h1>
-              <p className="max-w-[500px] text-white/80 mb-6">
-                I excel at crafting elegant digital experience and
-                I am proficient in various programming languages and technologies.
-              </p>
+    <div className="relative min-h-screen bg-background text-foreground">
+      <Header />
 
-              <div className="flex flex-col md:flex-row items-center gap-3">
-                <Button variant="outline" className="rounded-3xl text-hover">
-                  Download cv
-                  <span> <Download /> </span>
-                </Button>
+      {/* Side Social Links */}
+      <motion.div className="fixed bottom-0 left-6 z-20 hidden md:block">
+        <Social orientation="vertical" />
+      </motion.div>
 
-                <Social />
-              </div>
-            </ScrollAnimation>
-          </div>
+      {/* Side Email */}
+      <motion.div
+        className="fixed bottom-0 right-6 z-20 hidden md:block"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+      >
+        <div className="flex flex-col items-center">
+          <a
+            style={{ writingMode: 'vertical-rl' }}
+            className="font-mono text-foreground/60 hover:text-hover tracking-widest writing-vertical transition-colors duration-300"
+            href="mailto:puranban77@gmail.com"
+          >
+            puranban77@gmail.com
+          </a>
+          <div className="w-px h-24 bg-foreground/20 mt-4"></div>
+        </div>
+      </motion.div>
 
-          <div className="order-1 md:order-none mb-8 md:mb-0">
-            <HeroPhoto />
-          </div>
-        </Container>
-      </section>
-    </main>
+      <main>
+        <HeroSection />
+        <About />
+        <Resume />
+        <Work />
+        <Contact />
+      </main>
+    </div>
   );
 }

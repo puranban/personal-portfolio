@@ -1,18 +1,22 @@
 export const navbarData = [
   {
     title: "Home",
-    href: "/",
+    href: "#home",
+  },
+  {
+    title: "About",
+    href: "#about",
   },
   {
     title: "Resume",
-    href: "/resume",
+    href: "#resume",
   },
   {
     title: "work",
-    href: "/work",
+    href: "#work",
   },
   {
     title: "Contact",
-    href: "/contact",
+    href: "#contact",
   },
 ];
