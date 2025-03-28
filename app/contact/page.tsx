@@ -13,10 +13,13 @@ function Contact() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-3xl mx-auto text-center"
       >
-        <p className="section-number mb-2 inline-block">04.</p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+        <div className="flex justify-center gap-8 mb-8 text-4xl font-semibold">
+          <h2 className="shrink-0 text-4xl">
+            <span>03.</span> Get In Touch
+          </h2>
+        </div>
 
-        <motion.p 
+        <motion.p
           className="text-foreground/70 mb-8 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

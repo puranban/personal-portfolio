@@ -4,19 +4,20 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { IoLogoGithub, IoLogoLinkedin, IoLogoTwitter } from "react-icons/io5";
+import { socialLinks } from "@/constants";
 
 const links = [
   {
     icon: <IoLogoLinkedin />,
-    path: "",
+    path: socialLinks.linkedIn,
   },
   {
     icon: <IoLogoGithub />,
-    path: "",
+    path: socialLinks.github,
   },
   {
     icon: <IoLogoTwitter />,
-    path: "",
+    path: socialLinks.twitter,
   },
 ];
 
@@ -38,7 +39,9 @@ const Social = (props: Props) => {
     >
       {links?.map((item, i) => (
         <Link
-          className="flex border border-accent rounded-full p-2 text-hover justify-center items-center
+          target="_blank"
+          referrerPolicy="no-referrer"
+          className="flex border border-muted rounded-full p-2 text-hover justify-center items-center
           hover:bg-hover hover:text-background hover:transition-all duration-300"
           key={i}
           href={item.path}

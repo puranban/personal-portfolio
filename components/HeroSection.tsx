@@ -8,6 +8,7 @@ import Container from './Container';
 import SectionWrapper from './SectionWrapper';
 import AnimatedText from './AnimatedText';
 import ScrollIndicator from './ScrollIndicator';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
@@ -59,10 +60,23 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.4 }}
             >
-              <Button variant="outline" className="rounded-3xl text-hover">
-                Download cv
-                <span> <Download /> </span>
-              </Button>
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href="/resume.pdf"
+              >
+                <Button
+                  variant="outline"
+                  className="rounded-md text-hover
+                  hover:bg-hover hover:border-hover hover:text-background hover:-translate-y-2
+                  hover:shadow-lime-500
+                  transition-all duration-300
+                  "
+                >
+                  Download cv
+                  <span> <Download /> </span>
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </div>

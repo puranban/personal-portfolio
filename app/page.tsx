@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
+
+import Header from '@/components/Header';
 import Social from '@/components/Social';
-import Resume from './resume/page';
+import HeroSection from '@/components/HeroSection';
+import About from './about/page';
 import Work from './work/page';
 import Contact from './contact/page';
-import HeroSection from '@/components/HeroSection';
-import Header from '@/components/Header';
-import About from './about/page';
 
 export default function Home() {
   return (
@@ -42,7 +42,7 @@ export default function Home() {
         <HeroSection />
         <About />
         <Work />
-        <Resume />
+        {/* <Resume /> */}
         <Contact />
       </main>
     </div>
