@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { motion } from 'framer-motion';
+import { CheckCircle } from 'lucide-react';
 
-import SectionWrapper from "@/components/SectionWrapper";
-import Image from "next/image";
+import SectionWrapper from '@/components/SectionWrapper';
+import Image from 'next/image';
 
 const skills = [
-  "React", "JavaScript", "TypeScript", "HTML5", "CSS3", "React Native", 
-  "Next.js", "GraphQL", "Tailwind", "Redux", "Webpack", "Babel", 
+  "React", "JavaScript", "TypeScript", "HTML5", "CSS3", "React Native",
+  "Next.js", "GraphQL", "Tailwind", "Redux", "Webpack", "Babel",
   "Git", "Docker", "Firebase", "Android Studio", "CI/CD", "Mapbox",
   "Jest", "React Testing Library", "Performance Optimization"
 ];
@@ -21,12 +21,13 @@ const About = () => {
         transition={{ duration: 0.5 }}
         className="w-full flex flex-col justify-center"
       >
-        <div className="flex gap-8 text-4xl font-semibold">
-          <h2 className="shrink-0 text-4xl mb-8">
+        <div className="flex gap-8 mb-8 text-4xl font-semibold">
+          <h2 className="shrink-0 text-4xl">
             <span>01.</span> About Me
           </h2>
-          <hr className="w-[35%] border-1 border-hover m-0 p-0 self-center" />
+          <hr className="w-[35%] border-1 border-hover m-0 p-0 self-end" />
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-12">
           <motion.div
             className="md:col-span-2 space-y-4 text-foreground/80"

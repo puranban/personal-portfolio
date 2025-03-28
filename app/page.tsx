@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
-import Social from "@/components/Social";
-import Resume from "./resume/page";
-import Work from "./work/page";
-import Contact from "./contact/page";
-import HeroSection from "@/components/HeroSection";
-import Header from "@/components/Header";
-import About from "./about/page";
+import { motion } from 'framer-motion';
+import Social from '@/components/Social';
+import Resume from './resume/page';
+import Work from './work/page';
+import Contact from './contact/page';
+import HeroSection from '@/components/HeroSection';
+import Header from '@/components/Header';
+import About from './about/page';
 
 export default function Home() {
   return (
@@ -41,8 +41,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <About />
-        <Resume />
         <Work />
+        <Resume />
         <Contact />
       </main>
     </div>

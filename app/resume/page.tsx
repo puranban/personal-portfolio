@@ -1,4 +1,4 @@
-import SectionWrapper from "@/components/SectionWrapper";
+import SectionWrapper from '@/components/SectionWrapper';
 
 const Resume = () => {
   return (

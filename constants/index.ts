@@ -8,12 +8,12 @@ export const navbarData = [
     href: "#about",
   },
   {
-    title: "Resume",
-    href: "#resume",
-  },
-  {
     title: "work",
     href: "#work",
+  },
+  {
+    title: "Resume",
+    href: "#resume",
   },
   {
     title: "Contact",

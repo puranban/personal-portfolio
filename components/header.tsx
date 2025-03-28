@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { navbarData } from "@/constants";
+import { useEffect, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { cn } from '@/lib/utils';
+import { navbarData } from '@/constants';
 
-import { ModeToggle } from "./ModeToggle";
+import { ModeToggle } from './ModeToggle';
 
-import Logo from "./Logo";
-import MobileNav from "./MobileNav";
+import Logo from './Logo';
+import MobileNav from './MobileNav';
 
 const Header = () => {
   const pathname = window.location.hash;

@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Download } from "lucide-react";
-import { Button } from "./ui/button";
-import Container from "./Container";
-import SectionWrapper from "./SectionWrapper";
-import AnimatedText from "./AnimatedText";
-import ScrollIndicator from "./ScrollIndicator";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { Download } from 'lucide-react';
+import { Button } from './ui/button';
+import Container from './Container';
+import SectionWrapper from './SectionWrapper';
+import AnimatedText from './AnimatedText';
+import ScrollIndicator from './ScrollIndicator';
 
 const HeroSection = () => {
   return (
