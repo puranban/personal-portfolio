@@ -1,3 +1,0 @@
-#### Personal portfolio
-
- - coming soon!
