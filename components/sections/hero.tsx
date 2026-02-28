@@ -34,11 +34,11 @@ function HeroSection() {
         <AnimatedSection direction="up" delay={0}>
           <div className="flex justify-center mb-8">
             <div className="group relative">
-              {/* Decorative ring that adapts to theme */}
               <div
                 className="absolute -inset-1 bg-primary/20 group-hover:bg-primary/30 blur-sm rounded-full transition-colors"
                 aria-hidden="true"
               />
+              {/*
               <div className="relative shadow-xl rounded-full ring-4 ring-primary/30 ring-offset-4 ring-offset-background w-36 sm:w-44 h-36 sm:h-44 overflow-hidden">
                 <Image
                   src={profilePhoto}
@@ -50,12 +50,13 @@ function HeroSection() {
                   sizes="(max-width: 640px) 144px, 176px"
                 />
               </div>
+              */}
             </div>
           </div>
         </AnimatedSection>
 
         <AnimatedSection direction="up" delay={100}>
-          <p className="mb-4 font-mono text-primary text-sm sm:text-base">
+          <p className="mb-1 font-mono text-primary text-sm sm:text-base">
             {t.hero.greeting}
           </p>
         </AnimatedSection>

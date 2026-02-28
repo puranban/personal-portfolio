@@ -51,7 +51,7 @@ const ExperienceCard = memo(function ExperienceCard({
     >
       {/* Timeline line */}
       <div
-        className="hidden md:block top-2 bottom-0 left-[199px] absolute bg-border w-px"
+        className="hidden md:block top-14 bottom-2 left-[199px] absolute bg-border border w-px"
         aria-hidden="true"
       />
 

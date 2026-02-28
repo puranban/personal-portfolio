@@ -11,7 +11,7 @@ import type {
 } from './types';
 
 export const personalInfo: PersonalInfo = {
-  name: 'Puran ban',
+  name: 'Puran Ban',
   title: 'Frontend Engineer',
   email: 'puranban77@gmail.com',
   location: 'Oshawa, ON, Canada',
@@ -205,11 +205,11 @@ export const skillCategories: readonly SkillCategory[] = [
     translationKey: 'backend',
     skills: [
       { name: 'Node.js', level: 'intermediate' },
-      { name: 'GraphQL', level: 'intermediate' },
+      // { name: 'GraphQL', level: 'intermediate' },
       { name: 'REST APIs', level: 'intermediate' },
       { name: 'PostgreSQL', level: 'intermediate' },
       { name: 'MongoDB', level: 'intermediate' },
-      { name: 'Redis', level: 'intermediate' },
+      // { name: 'Redis', level: 'intermediate' },
     ],
   },
   {
@@ -260,7 +260,7 @@ export const certifications: readonly Certification[] = [
 export const navigationSections: readonly NavigationSection[] = [
   { id: 'about', label: 'About', translationKey: 'about', href: '#about', icon: 'user' },
   { id: 'experience', label: 'Experience', translationKey: 'experience', href: '#experience', icon: 'briefcase' },
-  { id: 'projects', label: 'Projects', translationKey: 'projects', href: '#projects', icon: 'folder' },
+  // { id: 'projects', label: 'Projects', translationKey: 'projects', href: '#projects', icon: 'folder' },
   { id: 'skills', label: 'Skills', translationKey: 'skills', href: '#skills', icon: 'code' },
   { id: 'certifications', label: 'Certifications', translationKey: 'certifications', href: '#certifications', icon: 'award' },
   { id: 'contact', label: 'Contact', translationKey: 'contact', href: '#contact', icon: 'mail' },

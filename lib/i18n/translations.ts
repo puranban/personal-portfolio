@@ -17,7 +17,7 @@ const translations: Record<Locale, TranslationKeys> = {
       switchLanguage: 'Switch language',
     },
     hero: {
-      greeting: 'Hi, I’m Puran Ban',
+      greeting: 'Hi, I am',
       title: 'Senior Frontend Engineer',
       subtitle: 'Architecting scalable, high-performance web applications.',
       description:
