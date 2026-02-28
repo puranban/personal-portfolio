@@ -182,12 +182,12 @@ function Header({ onOpenSearch }: HeaderProps) {
                     <Globe className="w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
+                <DropdownMenuContent className='flex flex-col gap-1' align="end">
                   {locales.map((loc) => (
                     <DropdownMenuItem
                       key={loc}
                       onClick={() => setLocale(loc)}
-                      className={cn(locale === loc && 'bg-accent my-1')}
+                      className={cn(locale === loc && 'bg-accent')}
                     >
                       {localeNames[loc]}
                     </DropdownMenuItem>
@@ -210,7 +210,7 @@ function Header({ onOpenSearch }: HeaderProps) {
                     )}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
+                <DropdownMenuContent className='flex flex-col gap-1' align="end">
                   <DropdownMenuItem
                     onClick={() => setTheme('light')}
                     className={cn(theme === 'light' && 'bg-accent')}
