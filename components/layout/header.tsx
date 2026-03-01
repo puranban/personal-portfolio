@@ -1,7 +1,8 @@
 'use client';
 
-// Header Component with Navigation
-// useState, useEffect, useCallback, event listeners, a11y
+// Floating Header components
+// CSS backdrop-filter, responsive design, ARIA accessibility,
+// scroll-aware animations, content-width floating pill nav
 
 import { useState, useEffect, useCallback, memo } from 'react';
 import { useI18n } from '@/lib/i18n/context';
@@ -47,15 +48,14 @@ const NavLink = memo(function NavLink({
       href={href}
       onClick={onClick}
       className={cn(
-        'relative px-3 py-2 font-medium text-sm transition-colors',
-        'hover:text-primary focus-visible:text-primary',
-        isActive ? 'text-primary' : 'text-muted-foreground'
+        'relative px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200',
+        'hover:text-primary hover:bg-primary/5 focus-visible:text-primary',
+        isActive
+          ? 'text-primary bg-primary/10'
+          : 'text-muted-foreground'
       )}
     >
       {label}
-      {isActive && (
-        <span className="bottom-0 left-1/2 absolute bg-primary w-4 h-0.5 -translate-x-1/2" />
-      )}
     </a>
   );
 });
@@ -69,7 +69,7 @@ function Header({ onOpenSearch }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
 
-  // Handle scroll effect for header background
+  // Handle scroll effect for header appearance
   const handleScroll = useCallback(() => {
     setIsScrolled(window.scrollY > 20);
 
@@ -92,7 +92,7 @@ function Header({ onOpenSearch }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Close mobile menu on resize
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     if (!isMobile) {
       setIsMobileMenuOpen(false);
@@ -122,29 +122,42 @@ function Header({ onOpenSearch }: HeaderProps) {
         {t.accessibility.skipToMain}
       </a>
 
-      <header
-        className={cn(
-          'top-0 right-0 left-0 z-50 fixed transition-all duration-300',
-          isScrolled
-            ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm'
-            : 'bg-transparent'
-        )}
-        role="banner"
+      {/* Outer wrapper: fixed, full-width for centering, pointer-events-none so
+          background content is fully clickable behind the header gap */}
+      <div
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none pt-4 px-4"
       >
-        <div className="mx-auto px-4 sm:px-6 max-w-6xl">
-          <div className="flex justify-between items-center h-16">
+        {/* Inner floating pill: content-width, pointer-events restored */}
+        <header
+          className={cn(
+            'pointer-events-auto w-auto max-w-5xl',
+            'rounded-2xl border transition-all duration-500',
+            'px-4 sm:px-5',
+            isScrolled
+              ? 'bg-background/70 backdrop-blur-xl border-border/60 shadow-lg shadow-foreground/[0.03]'
+              : 'bg-background/50 backdrop-blur-md border-transparent shadow-none'
+          )}
+          role="banner"
+        >
+          <div className="flex h-14 items-center gap-4">
             {/* Logo/Name */}
             <a
               href="#"
-              className="font-bold text-foreground hover:text-primary text-lg tracking-tight transition-colors"
+              className="shrink-0 text-base font-bold tracking-tight text-foreground hover:text-primary transition-colors"
               aria-label="Go to top"
             >
               {'<Puranban />'}
             </a>
 
+            {/* Vertical separator - desktop only */}
+            <div
+              className="hidden lg:block h-5 w-px bg-border/60 shrink-0"
+              aria-hidden="true"
+            />
+
             {/* Desktop Navigation */}
             <nav
-              className="hidden md:flex items-center gap-1"
+              className="hidden lg:flex items-center gap-1"
               role="navigation"
               aria-label="Main navigation"
             >
@@ -158,28 +171,32 @@ function Header({ onOpenSearch }: HeaderProps) {
               ))}
             </nav>
 
-            {/* Actions */}
-            <div className="flex items-center gap-2">
+            {/* Spacer */}
+            <div className="flex-1" aria-hidden="true" />
+
+            {/* Actions cluster */}
+            <div className="flex items-center gap-1">
               {/* Search Button */}
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={onOpenSearch}
                 aria-label={t.nav.search}
-                className="hidden sm:flex"
+                className="hidden sm:flex h-8 w-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted"
               >
-                <Search className="w-4 h-4" />
+                <Search className="h-4 w-4" />
               </Button>
 
               {/* Language Switcher */}
-              <DropdownMenu>
+              <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
                     aria-label={t.nav.switchLanguage}
+                    className="h-8 w-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted"
                   >
-                    <Globe className="w-4 h-4" />
+                    <Globe className="h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className='flex flex-col gap-1' align="end">
@@ -187,7 +204,7 @@ function Header({ onOpenSearch }: HeaderProps) {
                     <DropdownMenuItem
                       key={loc}
                       onClick={() => setLocale(loc)}
-                      className={cn(locale === loc && 'bg-accent')}
+                      className={cn(locale === loc && 'bg-accent text-accent-foreground')}
                     >
                       {localeNames[loc]}
                     </DropdownMenuItem>
@@ -196,40 +213,41 @@ function Header({ onOpenSearch }: HeaderProps) {
               </DropdownMenu>
 
               {/* Theme Switcher */}
-              <DropdownMenu>
+              <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
                     aria-label={t.nav.toggleTheme}
+                    className="h-8 w-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted"
                   >
                     {resolvedTheme === 'dark' ? (
-                      <Moon className="w-4 h-4" />
+                      <Moon className="h-4 w-4" />
                     ) : (
-                      <Sun className="w-4 h-4" />
+                      <Sun className="h-4 w-4" />
                     )}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className='flex flex-col gap-1' align="end">
                   <DropdownMenuItem
                     onClick={() => setTheme('light')}
-                    className={cn(theme === 'light' && 'bg-accent')}
+                    className={cn(theme === 'light' && 'bg-accent text-accent-foreground')}
                   >
-                    <Sun className="mr-2 w-4 h-4" />
+                    <Sun className="mr-2 h-4 w-4" />
                     Light
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     onClick={() => setTheme('dark')}
-                    className={cn(theme === 'dark' && 'bg-accent')}
+                    className={cn(theme === 'dark' && 'bg-accent text-accent-foreground')}
                   >
-                    <Moon className="mr-2 w-4 h-4" />
+                    <Moon className="mr-2 h-4 w-4" />
                     Dark
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     onClick={() => setTheme('system')}
-                    className={cn(theme === 'system' && 'bg-accent')}
+                    className={cn(theme === 'system' && 'bg-accent text-accent-foreground')}
                   >
-                    <Monitor className="mr-2 w-4 h-4" />
+                    <Monitor className="mr-2 h-4 w-4" />
                     System
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -239,7 +257,7 @@ function Header({ onOpenSearch }: HeaderProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden"
+                className="lg:hidden h-8 w-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label={
                   isMobileMenuOpen
@@ -249,35 +267,54 @@ function Header({ onOpenSearch }: HeaderProps) {
                 aria-expanded={isMobileMenuOpen}
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-5 h-5" />
+                  <X className="h-4 w-4" />
                 ) : (
-                  <Menu className="w-5 h-5" />
+                  <Menu className="h-4 w-4" />
                 )}
               </Button>
             </div>
           </div>
-        </div>
+        </header>
+      </div>
 
-        {/* Mobile Navigation Menu */}
+      {/* Mobile Navigation Overlay */}
+      {/* Separate from header so it can go full-width while header stays pill-shaped */}
+      <div
+        className={cn(
+          'fixed inset-0 z-40 lg:hidden transition-all duration-300',
+          isMobileMenuOpen
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none'
+        )}
+      >
+        {/* Backdrop */}
+        <div
+          className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+          onClick={handleMobileNavClick}
+          aria-hidden="true"
+        />
+
+        {/* Mobile menu panel */}
         <div
           className={cn(
-            'md:hidden top-full right-0 left-0 absolute bg-background border-border border-b transition-all duration-300',
+            'absolute top-20 left-4 right-4 rounded-2xl bg-card border border-border shadow-xl',
+            'transition-all duration-300',
             isMobileMenuOpen
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 -translate-y-4 pointer-events-none'
+              ? 'opacity-100 translate-y-0 scale-100'
+              : 'opacity-0 -translate-y-4 scale-95'
           )}
           role="dialog"
           aria-modal="true"
           aria-label="Mobile navigation"
         >
-          <nav className="flex flex-col gap-2 p-4">
+          <nav className="flex flex-col p-3 gap-1">
             {navigationSections.map((section) => (
               <a
                 key={section.id}
                 href={section.href}
                 onClick={handleMobileNavClick}
                 className={cn(
-                  'px-4 py-3 rounded-lg font-medium text-base transition-colors',
+                  'px-4 py-3 rounded-xl text-base font-medium transition-colors',
                   activeSection === section.id
                     ? 'bg-primary/10 text-primary'
                     : 'text-foreground hover:bg-muted'
@@ -286,20 +323,21 @@ function Header({ onOpenSearch }: HeaderProps) {
                 {t.nav[section.translationKey]}
               </a>
             ))}
+            <div className="h-px bg-border my-2" aria-hidden="true" />
             <Button
               variant="outline"
               onClick={() => {
                 handleMobileNavClick();
                 onOpenSearch();
               }}
-              className="mt-2"
+              className="rounded-xl"
             >
-              <Search className="mr-2 w-4 h-4" />
+              <Search className="mr-2 h-4 w-4" />
               {t.nav.search}
             </Button>
           </nav>
         </div>
-      </header>
+      </div>
     </>
   );
 }
