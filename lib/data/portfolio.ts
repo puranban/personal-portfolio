@@ -55,7 +55,7 @@ export const experiences: readonly Experience[] = [
     startDate: '2025-04',
     endDate: '2025-12',
     description:
-      'Owning frontend architecture and product delivery for a scalable SaaS subscription platform, focusing on performance, maintainability, and long-term system design.',
+    'Owning frontend architecture and product delivery for a scalable SaaS subscription platform, focusing on performance, maintainability, and long-term system design.',
     highlights: [
       'Designed and led a scalable React + Next.js + TypeScript architecture with strong separation of concerns and reusable patterns',
       'Engineered complex onboarding, subscription, and payment flows with reliability and edge-case handling in mind',
@@ -65,6 +65,16 @@ export const experiences: readonly Experience[] = [
       'Improved development velocity using AI-assisted tooling while maintaining full ownership of implementation quality',
     ],
     technologies: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'REST APIs', 'CI/CD'],
+    projects: [
+      {
+        name: 'Genese One',
+        link: 'https://www.one.genesesolution.com'
+      },
+      {
+        name: 'Genese One',
+        link: 'https://orlando.genesesolution.com/',
+      },
+    ],
     location: 'Lalitpur, Nepal',
   },
   {
@@ -75,7 +85,7 @@ export const experiences: readonly Experience[] = [
     startDate: '2021-10',
     endDate: '2025-03',
     description:
-      'Built large-scale, data-driven and geospatial applications used by international organizations, focusing on complex UI systems, performance, and real-time data visualization.',
+    'Built large-scale, data-driven and geospatial applications used by international organizations, focusing on complex UI systems, performance, and real-time data visualization.',
     highlights: [
       'Developed advanced geospatial visualizations using Mapbox GL JS and GeoJSON (Points, LineStrings, Polygons) for disaster risk and exposure analysis platforms',
       'Led implementation of multiple major frontend features across enterprise-grade applications with high user impact',
@@ -95,6 +105,36 @@ export const experiences: readonly Experience[] = [
       'Jest',
       'Docker',
     ],
+    projects: [
+      {
+        name: 'IFRC GO',
+        link: 'https://go.ifrc.org',
+      },
+      {
+        name: 'Deep (Currently Archived)',
+        link: 'https://www.thedeep.io',
+      },
+      {
+        name: 'Mapswipe',
+        link: 'https://mapswipe.org',
+      },
+      {
+        name: 'IFRC Gates',
+        link: 'https://go.ifrc.org',
+      },
+      {
+        name: 'IFRC Alert Hub',
+        link: 'https://alerthub.ifrc.org',
+      },
+      {
+        name: 'HELIX-IDMIC',
+        link: 'https://helix.tools.idmcdb.org/'
+      },
+      {
+        name: 'GIDD Dashboard',
+        link: 'https://internal-displacement.org/countries/'
+      },
+    ],
     location: 'Lalitpur, Nepal',
   },
   {
@@ -105,7 +145,7 @@ export const experiences: readonly Experience[] = [
     startDate: '2021-01',
     endDate: '2021-10',
     description:
-      'Delivered modern e-commerce applications with a strong focus on transactional reliability, reusable UI systems, and predictable state management.',
+    'Delivered modern e-commerce applications with a strong focus on transactional reliability, reusable UI systems, and predictable state management.',
     highlights: [
       'Built production-grade e-commerce interfaces handling secure payment flows and daily live transactions',
       'Implemented structured state management using Redux and Context API for predictable data flow',
@@ -113,6 +153,24 @@ export const experiences: readonly Experience[] = [
       'Translated product and design requirements into responsive, mobile-first React applications',
     ],
     technologies: ['React', 'Next.js', 'Redux', 'JavaScript', 'SCSS'],
+    projects: [
+      {
+        name: 'Kunyo Marketing',
+        link: 'https://www.kunyoismarketing.com/',
+      },
+      {
+        name: 'Garocha',
+        link: 'https://garocha.com/',
+      },
+      {
+        name: 'Nebuyo Shopping',
+        link: 'https://nebuyo-frontend.vercel.app/',
+      },
+      {
+        name: 'Kunyo V2',
+        link: 'https://kunyo.co',
+      },
+    ],
     location: 'Kathmandu, Nepal',
   },
   {
@@ -123,7 +181,7 @@ export const experiences: readonly Experience[] = [
     startDate: '2020-01',
     endDate: '2020-12',
     description:
-      'Started my frontend journey building ERP and accounting systems, gaining strong foundations in UI structure, API integration, and scalable code organization.',
+    'Started my frontend journey building ERP and accounting systems, gaining strong foundations in UI structure, API integration, and scalable code organization.',
     highlights: [
       'Developed business-facing ERP interfaces using React and modern JavaScript',
       'Integrated RESTful APIs to ensure smooth end-to-end data flow between frontend and backend systems',
@@ -131,6 +189,12 @@ export const experiences: readonly Experience[] = [
       'Built strong debugging and problem-solving fundamentals through hands-on production support',
     ],
     technologies: ['React', 'JavaScript', 'SCSS', 'REST APIs', 'MySQL'],
+    projects: [
+      {
+        name: 'Snigdh Aspire',
+        link: 'https://gd.snigdhaspire.com/',
+      },
+    ],
     location: 'Lalitpur, Nepal',
   },
 ] as const;
@@ -141,7 +205,7 @@ export const projects: readonly Project[] = [
     title: 'Design System Framework',
     description: 'A comprehensive, accessible component library built with React and TypeScript',
     longDescription:
-      'Enterprise-grade design system featuring 50+ components with full TypeScript support, Storybook documentation, and automated visual regression testing.',
+    'Enterprise-grade design system featuring 50+ components with full TypeScript support, Storybook documentation, and automated visual regression testing.',
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com',
     technologies: ['React', 'TypeScript', 'Storybook', 'Tailwind CSS', 'Radix UI'],
@@ -154,7 +218,7 @@ export const projects: readonly Project[] = [
     title: 'Real-time Analytics Dashboard',
     description: 'High-performance dashboard visualizing millions of data points in real-time',
     longDescription:
-      'Built for a fintech client to monitor trading activities with sub-second latency updates and complex data visualizations.',
+    'Built for a fintech client to monitor trading activities with sub-second latency updates and complex data visualizations.',
     liveUrl: 'https://example.com',
     technologies: ['Next.js', 'D3.js', 'WebSocket', 'Redis', 'PostgreSQL'],
     category: 'web-app',
@@ -166,7 +230,7 @@ export const projects: readonly Project[] = [
     title: 'E-commerce Platform',
     description: 'Headless e-commerce solution with advanced personalization features',
     longDescription:
-      'Modern JAMstack e-commerce platform featuring AI-powered product recommendations and optimized checkout flow.',
+    'Modern JAMstack e-commerce platform featuring AI-powered product recommendations and optimized checkout flow.',
     liveUrl: 'https://example.com',
     githubUrl: 'https://github.com',
     technologies: ['Next.js', 'Shopify API', 'Algolia', 'Stripe', 'Vercel'],

@@ -157,8 +157,8 @@
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
-  
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     html {

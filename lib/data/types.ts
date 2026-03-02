@@ -2,7 +2,10 @@
 // Portfolio Data Types
 // Demonstrates: TypeScript interfaces, union types, readonly arrays
 // ============================================================================
-
+interface ExperienceProject {
+  name: string;
+  link: string;
+}
 export interface Experience {
   readonly id: string;
   readonly company: string;
@@ -13,6 +16,7 @@ export interface Experience {
   readonly description: string;
   readonly highlights: readonly string[];
   readonly technologies: readonly string[];
+  readonly projects: readonly ExperienceProject[];
   readonly location: string;
 }
 
