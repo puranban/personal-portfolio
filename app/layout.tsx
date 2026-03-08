@@ -24,17 +24,17 @@ const inter = Inter({
 // SEO optimization
 
 // Ideally set NEXT_PUBLIC_SITE_URL in Vercel/hosting env
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://puranban.com.np'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.puranban.com.np'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title: {
-    default: 'Puran Ban — Senior Frontend Engineer (React, Next.js, TypeScript)',
-    template: '%s — Puran Ban',
+    default: 'Puran Ban | Senior Frontend Engineer - React & Next.js Developer',
+    template: '%s | Puran Ban',
   },
   description:
-    'Senior Frontend Engineer with 6+ years of experience building scalable, accessible, and high-performance web applications using React, TypeScript, and Next.js. Based in Canada and open to frontend opportunities.',
+    'Senior Frontend Engineer with 6+ years of experience building scalable, accessible, and high-performance web applications using React, TypeScript, and Next.js. Based in Canada and open to opportunities.',
   applicationName: 'Puran Ban Portfolio',
   keywords: [
     'Puran Ban',
@@ -43,6 +43,8 @@ export const metadata: Metadata = {
     'React',
     'Next.js',
     'TypeScript',
+    'React developer',
+    'Next.js developer',
     'Web Performance',
     'Accessibility',
     'Design Systems',
@@ -82,9 +84,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_CA',
     alternateLocale: ['fr_CA'],
-    url: '/',
+    url: 'https://www.puranban.com.np',
     siteName: 'Puran Ban Portfolio',
-    title: 'Puranban | Senior Frontend Engineer - React & Next.js Developer',
+    title: 'Puran Ban | Senior Frontend Engineer - React & Next.js Developer',
     description: 'I build scalable, accessible, and high-performance web experiences with React, TypeScript, and Next.js. Explore my work, experience, and projects.',
     images: [
       {

@@ -1,10 +1,13 @@
 import type { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://puranban.com.np'
-  const now = new Date()
+  const baseUrl = 'https://www.puranban.com.np';
+  const now = new Date();
   return [
-    { url: baseUrl, lastModified: now },
+    {
+      url: baseUrl,
+      lastModified: now
+    },
   ]
 }
 
