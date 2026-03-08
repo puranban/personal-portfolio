@@ -71,7 +71,7 @@ export const experiences: readonly Experience[] = [
         link: 'https://www.one.genesesolution.com'
       },
       {
-        name: 'Genese One',
+        name: 'Orlando',
         link: 'https://orlando.genesesolution.com/',
       },
     ],

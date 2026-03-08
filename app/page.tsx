@@ -23,11 +23,11 @@ const CommandPalette = lazy(() => import('@/components/command-palette'));
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Puran ban',
-  url: 'https://puranban.com.np',
+  name: 'Puran Ban',
+  url: 'https://www.puranban.com.np',
   jobTitle: 'Senior Frontend Engineer',
   phone: [
-    '(905) 922-3253',
+    '9059223253',
     '9840275475',
   ],
   'worksFor': [
